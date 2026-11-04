@@ -1,4 +1,4 @@
-import { IsInt, IsOptional, IsString, MaxLength } from "class-validator";
+import { IsIn, IsInt, IsOptional, IsString, MaxLength } from "class-validator";
 
 export class UpdateAppDto {
   @IsOptional()
@@ -21,6 +21,17 @@ export class UpdateAppDto {
   @IsOptional()
   @IsString()
   markdownDescription?: string;
+
+  @IsOptional()
+  @IsString()
+  category?: string;
+
+  @IsOptional()
+  @IsString()
+  @IsIn(["free", "freemium", "paid"], {
+    message: "pricing must be one of: free, freemium, paid",
+  })
+  pricing?: string;
 
   @IsOptional()
   @IsInt()

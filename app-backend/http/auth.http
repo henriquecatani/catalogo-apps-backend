@@ -19,7 +19,7 @@ GET http://localhost:3000/api/users
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsImVtYWlsIjoiY2F0YW5pQGxpbnV4bWFpbC5vcmciLCJuYW1lIjoiQ2F0YW5pIiwiaWF0IjoxNzg3ODc5MjEzLCJleHAiOjE3ODc5NjU2MTN9.H6pWFXSCU-foV7RORb_E8weI5gwQ9r5wNcTBnri-Pu4
 
 ###
-POST http://localhost:3001/api/auth/login
+POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {

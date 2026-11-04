@@ -114,6 +114,8 @@ export const AppScalarFieldEnum = {
   smallDescription: 'smallDescription',
   markdownDescription: 'markdownDescription',
   rating: 'rating',
+  category: 'category',
+  pricing: 'pricing',
   developerId: 'developerId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

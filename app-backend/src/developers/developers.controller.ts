@@ -7,10 +7,12 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  Query,
 } from "@nestjs/common";
 import { DevelopersService } from "./developers.service";
 import { CreateDeveloperDto } from "../dtos/create-developer-dto";
 import { UpdateDeveloperDto } from "../dtos/update-developer-dto";
+import { GetDevelopersQueryDto } from "../dtos/get-developers-query-dto";
 
 @Controller("developers")
 export class DevelopersController {
@@ -22,8 +24,8 @@ export class DevelopersController {
   }
 
   @Get()
-  async findAll() {
-    return await this.developersService.findAll();
+  async findAll(@Query() query: GetDevelopersQueryDto) {
+    return await this.developersService.findAll(query);
   }
 
   @Get(":id")

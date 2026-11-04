@@ -51,6 +51,8 @@ model App {
   smallDescription    String    @map("small_description")
   markdownDescription String    @map("markdown_description")
   rating              Float     @default(0.0)
+  category            String    @default("General")
+  pricing             String    @default("free")
   developer           Developer @relation(fields: [developerId], references: [id], onDelete: Cascade)
   developerId         Int       @map("developer_id")
   reviews             Review[]

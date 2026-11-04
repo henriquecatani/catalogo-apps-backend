@@ -6,6 +6,7 @@ import {
 import { PrismaService } from "../database/prisma.service";
 import { CreateAppDto } from "../dtos/create-app-dto";
 import { UpdateAppDto } from "../dtos/update-app-dto";
+import { GetAppsQueryDto } from "../dtos/get-apps-query-dto";
 
 @Injectable()
 export class AppsService {
@@ -27,6 +28,8 @@ export class AppsService {
         link: dto.link,
         smallDescription: dto.smallDescription,
         markdownDescription: dto.markdownDescription,
+        category: dto.category,
+        pricing: dto.pricing.toLowerCase(),
         developerId: dto.developerId,
         rating: 0.0,
       },
@@ -41,33 +44,78 @@ export class AppsService {
     };
   }
 
-  async findAll(developerId?: number, search?: string) {
+  async findAll(query?: GetAppsQueryDto) {
+    const page = query?.page && query.page > 0 ? query.page : 1;
+    const limit = query?.limit && query.limit > 0 ? query.limit : 10;
+    const skip = (page - 1) * limit;
+
     const where: any = {};
 
-    if (developerId) {
-      where.developerId = developerId;
+    if (query?.developerId) {
+      where.developerId = query.developerId;
     }
 
-    if (search) {
+    if (query?.category) {
+      where.category = query.category;
+    }
+
+    if (query?.pricing) {
+      where.pricing = query.pricing.toLowerCase();
+    }
+
+    if (query?.search) {
       where.OR = [
-        { name: { contains: search } },
-        { smallDescription: { contains: search } },
+        { name: { contains: query.search } },
+        { smallDescription: { contains: query.search } },
+        { category: { contains: query.search } },
       ];
     }
 
-    return this.prisma.app.findMany({
-      where,
-      include: {
-        developer: {
-          select: {
-            id: true,
-            name: true,
-            icon: true,
+    let orderBy: any[];
+    if (query?.sortBy === "alphabetical") {
+      orderBy = [{ name: query.order ?? "asc" }];
+    } else if (query?.sortBy === "newest") {
+      orderBy = [{ createdAt: query.order ?? "desc" }];
+    } else {
+      // Default: ordered by Rating (desc) and alphabetically (asc)
+      const ratingOrder = query?.order ?? "desc";
+      orderBy = [{ rating: ratingOrder }, { name: "asc" }];
+    }
+
+    const [total, data] = await Promise.all([
+      this.prisma.app.count({ where }),
+      this.prisma.app.findMany({
+        where,
+        select: {
+          id: true,
+          name: true,
+          icon: true,
+          smallDescription: true,
+          rating: true,
+          pricing: true,
+          developer: {
+            select: {
+              id: true,
+              name: true,
+              icon: true,
+            },
           },
         },
+        orderBy,
+        skip,
+        take: limit,
+      }),
+    ]);
+
+    return {
+      data,
+      meta: {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit) || 1,
       },
-      orderBy: { createdAt: "desc" },
-    });
+    };
   }
 
   async findOne(id: number) {
@@ -122,6 +170,8 @@ export class AppsService {
         link: dto.link,
         smallDescription: dto.smallDescription,
         markdownDescription: dto.markdownDescription,
+        category: dto.category,
+        pricing: dto.pricing ? dto.pricing.toLowerCase() : undefined,
         developerId: dto.developerId,
       },
       include: {

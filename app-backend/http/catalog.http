@@ -1,16 +1,20 @@
 ### 1. Criar Desenvolvedor
 POST http://localhost:3000/api/developers
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5MDcyOTgwNiwiZXhwIjoxNzkwODE2MjA2fQ.FrczMoWVAao8C7q4QukW3cGvCAmhfqYz-eezX__bsRk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
 
 {
   "name": "Mozilla",
   "icon": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Firefox_logo%2C_2019.svg"
 }
 
-### 2. Listar Desenvolvedores
-GET http://localhost:3000/api/developers
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5MDcyOTgwNiwiZXhwIjoxNzkwODE2MjA2fQ.FrczMoWVAao8C7q4QukW3cGvCAmhfqYz-eezX__bsRk
+### 2. Listar Desenvolvedores (Paginado com app_count)
+GET http://localhost:3000/api/developers?page=1&limit=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
+
+### 2.1 Listar Desenvolvedores com lista completa de Apps (includeApps=true)
+GET http://localhost:3000/api/developers?page=1&limit=10&includeApps=true
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
 
 ### 3. Obter Desenvolvedor por ID
 GET http://localhost:3000/api/developers/2
@@ -25,10 +29,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsI
   "name": "Mozilla Foundation"
 }
 
-### 5. Cadastrar Aplicativo
+### 5. Cadastrar Aplicativo (com categoria e preço)
 POST http://localhost:3000/api/apps
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5MDcyOTgwNiwiZXhwIjoxNzkwODE2MjA2fQ.FrczMoWVAao8C7q4QukW3cGvCAmhfqYz-eezX__bsRk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
 
 {
   "name": "Firefox Browser",
@@ -36,13 +40,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsI
   "link": "https://www.mozilla.org/firefox/",
   "smallDescription": "Navegador web rápido, seguro e privado.",
   "markdownDescription": "# Firefox\n\nO navegador que prioriza sua privacidade e rapidez de navegação na web.",
-  "developerId": 2
+  "category": "Browsers",
+  "pricing": "free",
+  "developerId": 1
 }
 
 ###
 POST http://localhost:3000/api/apps
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5MDcyOTgwNiwiZXhwIjoxNzkwODE2MjA2fQ.FrczMoWVAao8C7q4QukW3cGvCAmhfqYz-eezX__bsRk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
 
 {
   "name": "Thunderbird Email",
@@ -50,12 +56,22 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsI
   "link": "https://thunderbird.net",
   "smallDescription": "Cliente de email livre e de código aberto.",
   "markdownDescription": "# Thunderbird\n\nAlternativa ao Outlook. Disponível para Windows, macOS, Linux e Android.  \nAlém do cliente de e-mail, o Thunderbird oferece calendário/agenda eletrônica, agenda de contatos, leitor RSS e outros recursos de gestão pessoal.",
-  "developerId": 2
+  "category": "Productivity",
+  "pricing": "free",
+  "developerId": 1
 }
 
-### 6. Listar Aplicativos
-GET http://localhost:3000/api/apps
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5MDcyOTgwNiwiZXhwIjoxNzkwODE2MjA2fQ.FrczMoWVAao8C7q4QukW3cGvCAmhfqYz-eezX__bsRk
+### 6. Listar Aplicativos (Paginado em lotes de 10, ordenado por Nota e Nome)
+GET http://localhost:3000/api/apps?page=1&limit=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
+
+### 6.1 Listar os 10 melhores Navegadores Gratuitos (10 best rated Free Browsers)
+GET http://localhost:3000/api/apps?category=Browsers&pricing=free&page=1&limit=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
+
+### 6.2 Listar Aplicativos ordenados alfabeticamente
+GET http://localhost:3000/api/apps?sortBy=alphabetical&page=1&limit=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
 
 ### 7. Buscar Aplicativo por texto ou por desenvolvedor
 GET http://localhost:3000/api/apps?search=Firefox

@@ -46,6 +46,8 @@ export type AppMinAggregateOutputType = {
   smallDescription: string | null
   markdownDescription: string | null
   rating: number | null
+  category: string | null
+  pricing: string | null
   developerId: number | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -59,6 +61,8 @@ export type AppMaxAggregateOutputType = {
   smallDescription: string | null
   markdownDescription: string | null
   rating: number | null
+  category: string | null
+  pricing: string | null
   developerId: number | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -72,6 +76,8 @@ export type AppCountAggregateOutputType = {
   smallDescription: number
   markdownDescription: number
   rating: number
+  category: number
+  pricing: number
   developerId: number
   createdAt: number
   updatedAt: number
@@ -99,6 +105,8 @@ export type AppMinAggregateInputType = {
   smallDescription?: true
   markdownDescription?: true
   rating?: true
+  category?: true
+  pricing?: true
   developerId?: true
   createdAt?: true
   updatedAt?: true
@@ -112,6 +120,8 @@ export type AppMaxAggregateInputType = {
   smallDescription?: true
   markdownDescription?: true
   rating?: true
+  category?: true
+  pricing?: true
   developerId?: true
   createdAt?: true
   updatedAt?: true
@@ -125,6 +135,8 @@ export type AppCountAggregateInputType = {
   smallDescription?: true
   markdownDescription?: true
   rating?: true
+  category?: true
+  pricing?: true
   developerId?: true
   createdAt?: true
   updatedAt?: true
@@ -225,6 +237,8 @@ export type AppGroupByOutputType = {
   smallDescription: string
   markdownDescription: string
   rating: number
+  category: string
+  pricing: string
   developerId: number
   createdAt: Date
   updatedAt: Date
@@ -261,6 +275,8 @@ export type AppWhereInput = {
   smallDescription?: Prisma.StringFilter<"App"> | string
   markdownDescription?: Prisma.StringFilter<"App"> | string
   rating?: Prisma.FloatFilter<"App"> | number
+  category?: Prisma.StringFilter<"App"> | string
+  pricing?: Prisma.StringFilter<"App"> | string
   developerId?: Prisma.IntFilter<"App"> | number
   createdAt?: Prisma.DateTimeFilter<"App"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"App"> | Date | string
@@ -276,6 +292,8 @@ export type AppOrderByWithRelationInput = {
   smallDescription?: Prisma.SortOrder
   markdownDescription?: Prisma.SortOrder
   rating?: Prisma.SortOrder
+  category?: Prisma.SortOrder
+  pricing?: Prisma.SortOrder
   developerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -294,6 +312,8 @@ export type AppWhereUniqueInput = Prisma.AtLeast<{
   smallDescription?: Prisma.StringFilter<"App"> | string
   markdownDescription?: Prisma.StringFilter<"App"> | string
   rating?: Prisma.FloatFilter<"App"> | number
+  category?: Prisma.StringFilter<"App"> | string
+  pricing?: Prisma.StringFilter<"App"> | string
   developerId?: Prisma.IntFilter<"App"> | number
   createdAt?: Prisma.DateTimeFilter<"App"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"App"> | Date | string
@@ -309,6 +329,8 @@ export type AppOrderByWithAggregationInput = {
   smallDescription?: Prisma.SortOrder
   markdownDescription?: Prisma.SortOrder
   rating?: Prisma.SortOrder
+  category?: Prisma.SortOrder
+  pricing?: Prisma.SortOrder
   developerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -330,6 +352,8 @@ export type AppScalarWhereWithAggregatesInput = {
   smallDescription?: Prisma.StringWithAggregatesFilter<"App"> | string
   markdownDescription?: Prisma.StringWithAggregatesFilter<"App"> | string
   rating?: Prisma.FloatWithAggregatesFilter<"App"> | number
+  category?: Prisma.StringWithAggregatesFilter<"App"> | string
+  pricing?: Prisma.StringWithAggregatesFilter<"App"> | string
   developerId?: Prisma.IntWithAggregatesFilter<"App"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"App"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"App"> | Date | string
@@ -342,6 +366,8 @@ export type AppCreateInput = {
   smallDescription: string
   markdownDescription: string
   rating?: number
+  category?: string
+  pricing?: string
   createdAt?: Date | string
   updatedAt?: Date | string
   developer: Prisma.DeveloperCreateNestedOneWithoutAppsInput
@@ -356,6 +382,8 @@ export type AppUncheckedCreateInput = {
   smallDescription: string
   markdownDescription: string
   rating?: number
+  category?: string
+  pricing?: string
   developerId: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -369,6 +397,8 @@ export type AppUpdateInput = {
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  pricing?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   developer?: Prisma.DeveloperUpdateOneRequiredWithoutAppsNestedInput
@@ -383,6 +413,8 @@ export type AppUncheckedUpdateInput = {
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  pricing?: Prisma.StringFieldUpdateOperationsInput | string
   developerId?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -397,6 +429,8 @@ export type AppCreateManyInput = {
   smallDescription: string
   markdownDescription: string
   rating?: number
+  category?: string
+  pricing?: string
   developerId: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -409,6 +443,8 @@ export type AppUpdateManyMutationInput = {
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  pricing?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -421,6 +457,8 @@ export type AppUncheckedUpdateManyInput = {
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  pricing?: Prisma.StringFieldUpdateOperationsInput | string
   developerId?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -444,6 +482,8 @@ export type AppCountOrderByAggregateInput = {
   smallDescription?: Prisma.SortOrder
   markdownDescription?: Prisma.SortOrder
   rating?: Prisma.SortOrder
+  category?: Prisma.SortOrder
+  pricing?: Prisma.SortOrder
   developerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -463,6 +503,8 @@ export type AppMaxOrderByAggregateInput = {
   smallDescription?: Prisma.SortOrder
   markdownDescription?: Prisma.SortOrder
   rating?: Prisma.SortOrder
+  category?: Prisma.SortOrder
+  pricing?: Prisma.SortOrder
   developerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -476,6 +518,8 @@ export type AppMinOrderByAggregateInput = {
   smallDescription?: Prisma.SortOrder
   markdownDescription?: Prisma.SortOrder
   rating?: Prisma.SortOrder
+  category?: Prisma.SortOrder
+  pricing?: Prisma.SortOrder
   developerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -563,6 +607,8 @@ export type AppCreateWithoutDeveloperInput = {
   smallDescription: string
   markdownDescription: string
   rating?: number
+  category?: string
+  pricing?: string
   createdAt?: Date | string
   updatedAt?: Date | string
   reviews?: Prisma.ReviewCreateNestedManyWithoutAppInput
@@ -576,6 +622,8 @@ export type AppUncheckedCreateWithoutDeveloperInput = {
   smallDescription: string
   markdownDescription: string
   rating?: number
+  category?: string
+  pricing?: string
   createdAt?: Date | string
   updatedAt?: Date | string
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutAppInput
@@ -617,6 +665,8 @@ export type AppScalarWhereInput = {
   smallDescription?: Prisma.StringFilter<"App"> | string
   markdownDescription?: Prisma.StringFilter<"App"> | string
   rating?: Prisma.FloatFilter<"App"> | number
+  category?: Prisma.StringFilter<"App"> | string
+  pricing?: Prisma.StringFilter<"App"> | string
   developerId?: Prisma.IntFilter<"App"> | number
   createdAt?: Prisma.DateTimeFilter<"App"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"App"> | Date | string
@@ -629,6 +679,8 @@ export type AppCreateWithoutReviewsInput = {
   smallDescription: string
   markdownDescription: string
   rating?: number
+  category?: string
+  pricing?: string
   createdAt?: Date | string
   updatedAt?: Date | string
   developer: Prisma.DeveloperCreateNestedOneWithoutAppsInput
@@ -642,6 +694,8 @@ export type AppUncheckedCreateWithoutReviewsInput = {
   smallDescription: string
   markdownDescription: string
   rating?: number
+  category?: string
+  pricing?: string
   developerId: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -670,6 +724,8 @@ export type AppUpdateWithoutReviewsInput = {
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  pricing?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   developer?: Prisma.DeveloperUpdateOneRequiredWithoutAppsNestedInput
@@ -683,6 +739,8 @@ export type AppUncheckedUpdateWithoutReviewsInput = {
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  pricing?: Prisma.StringFieldUpdateOperationsInput | string
   developerId?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -696,6 +754,8 @@ export type AppCreateManyDeveloperInput = {
   smallDescription: string
   markdownDescription: string
   rating?: number
+  category?: string
+  pricing?: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -707,6 +767,8 @@ export type AppUpdateWithoutDeveloperInput = {
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  pricing?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   reviews?: Prisma.ReviewUpdateManyWithoutAppNestedInput
@@ -720,6 +782,8 @@ export type AppUncheckedUpdateWithoutDeveloperInput = {
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  pricing?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutAppNestedInput
@@ -733,6 +797,8 @@ export type AppUncheckedUpdateManyWithoutDeveloperInput = {
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  pricing?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -776,6 +842,8 @@ export type AppSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = ru
   smallDescription?: boolean
   markdownDescription?: boolean
   rating?: boolean
+  category?: boolean
+  pricing?: boolean
   developerId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -792,6 +860,8 @@ export type AppSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extension
   smallDescription?: boolean
   markdownDescription?: boolean
   rating?: boolean
+  category?: boolean
+  pricing?: boolean
   developerId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -806,6 +876,8 @@ export type AppSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extension
   smallDescription?: boolean
   markdownDescription?: boolean
   rating?: boolean
+  category?: boolean
+  pricing?: boolean
   developerId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -820,12 +892,14 @@ export type AppSelectScalar = {
   smallDescription?: boolean
   markdownDescription?: boolean
   rating?: boolean
+  category?: boolean
+  pricing?: boolean
   developerId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type AppOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "icon" | "link" | "smallDescription" | "markdownDescription" | "rating" | "developerId" | "createdAt" | "updatedAt", ExtArgs["result"]["app"]>
+export type AppOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "icon" | "link" | "smallDescription" | "markdownDescription" | "rating" | "category" | "pricing" | "developerId" | "createdAt" | "updatedAt", ExtArgs["result"]["app"]>
 export type AppInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   developer?: boolean | Prisma.DeveloperDefaultArgs<ExtArgs>
   reviews?: boolean | Prisma.App$reviewsArgs<ExtArgs>
@@ -852,6 +926,8 @@ export type $AppPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
     smallDescription: string
     markdownDescription: string
     rating: number
+    category: string
+    pricing: string
     developerId: number
     createdAt: Date
     updatedAt: Date
@@ -1287,6 +1363,8 @@ export interface AppFieldRefs {
   readonly smallDescription: Prisma.FieldRef<"App", 'String'>
   readonly markdownDescription: Prisma.FieldRef<"App", 'String'>
   readonly rating: Prisma.FieldRef<"App", 'Float'>
+  readonly category: Prisma.FieldRef<"App", 'String'>
+  readonly pricing: Prisma.FieldRef<"App", 'String'>
   readonly developerId: Prisma.FieldRef<"App", 'Int'>
   readonly createdAt: Prisma.FieldRef<"App", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"App", 'DateTime'>
