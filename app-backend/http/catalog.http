@@ -113,8 +113,8 @@ Content-Type: application/json
   "rating": 4.0
 }
 
-### 12. Listar Avaliações do Aplicativo
-GET http://localhost:3000/api/apps/1/reviews
+### 12. Listar Avaliações do Aplicativo (Paginado - lote de 10)
+GET http://localhost:3000/api/apps/1/reviews?page=1&limit=10
 
 ### 13. Verificar Nota Recalculada no Aplicativo (deve ser 4.5)
 GET http://localhost:3000/api/apps/1

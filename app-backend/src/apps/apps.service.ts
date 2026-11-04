@@ -124,6 +124,7 @@ export class AppsService {
       include: {
         developer: true,
         reviews: {
+          take: 10,
           include: {
             user: {
               select: {

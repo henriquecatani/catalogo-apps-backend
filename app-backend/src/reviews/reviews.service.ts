@@ -6,6 +6,7 @@ import {
 import { PrismaService } from "../database/prisma.service";
 import { CreateReviewDto } from "../dtos/create-review-dto";
 import { UpdateReviewDto } from "../dtos/update-review-dto";
+import { GetReviewsQueryDto } from "../dtos/get-reviews-query-dto";
 import { AppsService } from "../apps/apps.service";
 
 @Injectable()
@@ -64,7 +65,7 @@ export class ReviewsService {
     };
   }
 
-  async findByApp(appId: number) {
+  async findByApp(appId: number, query?: GetReviewsQueryDto) {
     const app = await this.prisma.app.findUnique({
       where: { id: appId },
     });
@@ -73,24 +74,45 @@ export class ReviewsService {
       throw new NotFoundException("Aplicativo não encontrado.");
     }
 
-    return this.prisma.review.findMany({
-      where: { appId },
-      include: {
-        user: {
-          select: {
-            id: true,
-            name: true,
-            email: true,
-            profile: {
-              select: {
-                avatarUrl: true,
+    const page = query?.page && query.page > 0 ? query.page : 1;
+    const limit = query?.limit && query.limit > 0 ? query.limit : 10;
+    const skip = (page - 1) * limit;
+
+    const [total, data] = await Promise.all([
+      this.prisma.review.count({
+        where: { appId },
+      }),
+      this.prisma.review.findMany({
+        where: { appId },
+        include: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              profile: {
+                select: {
+                  avatarUrl: true,
+                },
               },
             },
           },
         },
+        orderBy: { createdAt: "desc" },
+        skip,
+        take: limit,
+      }),
+    ]);
+
+    return {
+      data,
+      meta: {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit) || 1,
       },
-      orderBy: { createdAt: "desc" },
-    });
+    };
   }
 
   async findOne(id: number) {

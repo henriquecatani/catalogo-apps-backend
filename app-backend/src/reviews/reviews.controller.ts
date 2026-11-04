@@ -7,10 +7,12 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  Query,
 } from "@nestjs/common";
 import { ReviewsService } from "./reviews.service";
 import { CreateReviewDto } from "../dtos/create-review-dto";
 import { UpdateReviewDto } from "../dtos/update-review-dto";
+import { GetReviewsQueryDto } from "../dtos/get-reviews-query-dto";
 
 @Controller()
 export class ReviewsController {
@@ -25,8 +27,11 @@ export class ReviewsController {
   }
 
   @Get("apps/:appId/reviews")
-  async findByApp(@Param("appId", ParseIntPipe) appId: number) {
-    return await this.reviewsService.findByApp(appId);
+  async findByApp(
+    @Param("appId", ParseIntPipe) appId: number,
+    @Query() query: GetReviewsQueryDto,
+  ) {
+    return await this.reviewsService.findByApp(appId, query);
   }
 
   @Get("reviews/:id")
