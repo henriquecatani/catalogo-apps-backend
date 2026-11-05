@@ -116,6 +116,7 @@ describe("DevelopersService", () => {
               icon: true,
               rating: true,
               smallDescription: true,
+              pricing: true,
             },
           },
         },
@@ -125,6 +126,48 @@ describe("DevelopersService", () => {
       });
 
       expect(result.data).toEqual(mockDevelopersWithApps);
+    });
+  });
+
+  describe("findOne", () => {
+    it("should return developer with apps containing only essential fields", async () => {
+      const mockDeveloper = {
+        id: 1,
+        name: "Mozilla",
+        icon: "mozilla.svg",
+        apps: [
+          {
+            id: 1,
+            name: "Firefox",
+            icon: "firefox.svg",
+            rating: 4.8,
+            smallDescription: "Fast browser",
+            pricing: "free",
+          },
+        ],
+      };
+
+      prisma.developer.findUnique.mockResolvedValue(mockDeveloper);
+
+      const result = await service.findOne(1);
+
+      expect(prisma.developer.findUnique).toHaveBeenCalledWith({
+        where: { id: 1 },
+        include: {
+          apps: {
+            select: {
+              id: true,
+              name: true,
+              icon: true,
+              rating: true,
+              smallDescription: true,
+              pricing: true,
+            },
+          },
+        },
+      });
+
+      expect(result).toEqual(mockDeveloper);
     });
   });
 });

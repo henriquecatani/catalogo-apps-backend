@@ -45,6 +45,7 @@ export class DevelopersService {
                 icon: true,
                 rating: true,
                 smallDescription: true,
+                pricing: true,
               },
             },
           },
@@ -104,7 +105,16 @@ export class DevelopersService {
     const developer = await this.prisma.developer.findUnique({
       where: { id },
       include: {
-        apps: true,
+        apps: {
+          select: {
+            id: true,
+            name: true,
+            icon: true,
+            rating: true,
+            smallDescription: true,
+            pricing: true,
+          },
+        },
       },
     });
 

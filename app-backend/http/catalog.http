@@ -17,8 +17,8 @@ GET http://localhost:3000/api/developers?page=1&limit=10&includeApps=true
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
 
 ### 3. Obter Desenvolvedor por ID
-GET http://localhost:3000/api/developers/2
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5MDcyOTgwNiwiZXhwIjoxNzkwODE2MjA2fQ.FrczMoWVAao8C7q4QukW3cGvCAmhfqYz-eezX__bsRk
+GET http://localhost:3000/api/developers/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
 
 ### 4. Atualizar Desenvolvedor
 PUT http://localhost:3000/api/developers/2
@@ -77,8 +77,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsI
 GET http://localhost:3000/api/apps?search=Firefox
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5MDcyOTgwNiwiZXhwIjoxNzkwODE2MjA2fQ.FrczMoWVAao8C7q4QukW3cGvCAmhfqYz-eezX__bsRk
 ###
-GET http://localhost:3000/api/apps?developerId=2
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5MDcyOTgwNiwiZXhwIjoxNzkwODE2MjA2fQ.FrczMoWVAao8C7q4QukW3cGvCAmhfqYz-eezX__bsRk
+GET http://localhost:3000/api/apps?developerId=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
 
 ### 8. Obter Aplicativo por ID (inclui desenvolvedor e avaliações)
 GET http://localhost:3000/api/apps/1
