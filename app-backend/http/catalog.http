@@ -10,7 +10,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsI
 
 ### 2. Listar Desenvolvedores (Paginado com app_count)
 GET http://localhost:3000/api/developers?page=1&limit=10
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
 
 ### 2.1 Listar Desenvolvedores com lista completa de Apps (includeApps=true)
 GET http://localhost:3000/api/developers?page=1&limit=10&includeApps=true
@@ -18,7 +17,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsI
 
 ### 3. Obter Desenvolvedor por ID
 GET http://localhost:3000/api/developers/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
 
 ### 4. Atualizar Desenvolvedor
 PUT http://localhost:3000/api/developers/2
@@ -67,37 +65,39 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsI
 
 ### 6.1 Listar os 10 melhores Navegadores Gratuitos (10 best rated Free Browsers)
 GET http://localhost:3000/api/apps?category=Browsers&pricing=free&page=1&limit=10
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2F0YW5pQGxpbnV4bWFpbC5vcmciLCJuYW1lIjoiQ2F0YW5pIiwiaWF0IjoxNzkzOTk4MDAwLCJleHAiOjE3OTQwODQ0MDB9.CeqW_kyf7mhIddwrKtU3blV1jsOs0qMSuiInIq1VHfA
 
 ### 6.2 Listar Aplicativos ordenados alfabeticamente
 GET http://localhost:3000/api/apps?sortBy=alphabetical&page=1&limit=10
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2F0YW5pQGxpbnV4bWFpbC5vcmciLCJuYW1lIjoiQ2F0YW5pIiwiaWF0IjoxNzkzOTk4MDAwLCJleHAiOjE3OTQwODQ0MDB9.CeqW_kyf7mhIddwrKtU3blV1jsOs0qMSuiInIq1VHfA
 
 ### 7. Buscar Aplicativo por texto ou por desenvolvedor
 GET http://localhost:3000/api/apps?search=Firefox
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5MDcyOTgwNiwiZXhwIjoxNzkwODE2MjA2fQ.FrczMoWVAao8C7q4QukW3cGvCAmhfqYz-eezX__bsRk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2F0YW5pQGxpbnV4bWFpbC5vcmciLCJuYW1lIjoiQ2F0YW5pIiwiaWF0IjoxNzkzOTk4MDAwLCJleHAiOjE3OTQwODQ0MDB9.CeqW_kyf7mhIddwrKtU3blV1jsOs0qMSuiInIq1VHfA
 ###
 GET http://localhost:3000/api/apps?developerId=1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
 
-### 8. Obter Aplicativo por ID (inclui desenvolvedor e avaliações)
+### 8. Obter Aplicativo por ID (inclui desenvolvedor)
 GET http://localhost:3000/api/apps/1
 
 ### 9. Atualizar Aplicativo
 PUT http://localhost:3000/api/apps/1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2F0YW5pQGxpbnV4bWFpbC5vcmciLCJuYW1lIjoiQ2F0YW5pIiwiaWF0IjoxNzkzOTk4MDAwLCJleHAiOjE3OTQwODQ0MDB9.CeqW_kyf7mhIddwrKtU3blV1jsOs0qMSuiInIq1VHfA
 
 {
-  "smallDescription": "Navegador web moderno focado em privacidade."
+  "icon": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg"
 }
 
 ### 10. Criar Avaliação 1 para o Aplicativo (recalcula a nota do App)
 POST http://localhost:3000/api/apps/1/reviews
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2F0YW5pQGxpbnV4bWFpbC5vcmciLCJuYW1lIjoiQ2F0YW5pIiwiaWF0IjoxNzkzOTk4MDAwLCJleHAiOjE3OTQwODQ0MDB9.CeqW_kyf7mhIddwrKtU3blV1jsOs0qMSuiInIq1VHfA
 
 {
-  "userId": 3,
-  "name": "Mateus",
+  "userId": 2,
+  "name": "Cat",
   "markdownText": "Excelente navegador, muito rápido!",
   "rating": 5.0
 }
@@ -105,9 +105,10 @@ Content-Type: application/json
 ### 11. Criar Avaliação 2 para o Aplicativo
 POST http://localhost:3000/api/apps/1/reviews
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2F0YW5pQGxpbnV4bWFpbC5vcmciLCJuYW1lIjoiQ2F0YW5pIiwiaWF0IjoxNzkzOTk4MDAwLCJleHAiOjE3OTQwODQ0MDB9.CeqW_kyf7mhIddwrKtU3blV1jsOs0qMSuiInIq1VHfA
 
 {
-  "userId": 4,
+  "userId": 1,
   "name": "usuario",
   "markdownText": "Muito bom, mas consome um pouco de memória.",
   "rating": 4.0

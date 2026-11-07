@@ -123,24 +123,6 @@ export class AppsService {
       where: { id },
       include: {
         developer: true,
-        reviews: {
-          take: 10,
-          include: {
-            user: {
-              select: {
-                id: true,
-                name: true,
-                email: true,
-                profile: {
-                  select: {
-                    avatarUrl: true,
-                  },
-                },
-              },
-            },
-          },
-          orderBy: { createdAt: "desc" },
-        },
       },
     });
 
