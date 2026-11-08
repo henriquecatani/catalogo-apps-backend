@@ -1,4 +1,5 @@
 GET http://localhost:3000/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoidGVzdEBtYWlsLm9yZyIsIm5hbWUiOiJUZXN0IE5hbWUiLCJpYXQiOjE3OTQwOTU1ODgsImV4cCI6MTc5NDE4MTk4OH0.85JpbvpcgpYrLl_Jj25dZ5dt0oXCULD9WJay8gb0wyk
 
 ###
 POST http://localhost:3000/api/users
@@ -12,6 +13,7 @@ Content-Type: application/json
 ###
 PUT http://localhost:3000/api/users/3
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoidGVzdEBtYWlsLm9yZyIsIm5hbWUiOiJUZXN0IE5hbWUiLCJpYXQiOjE3OTQwOTU1ODgsImV4cCI6MTc5NDE4MTk4OH0.85JpbvpcgpYrLl_Jj25dZ5dt0oXCULD9WJay8gb0wyk
 
 {
   "name": "Mateus",

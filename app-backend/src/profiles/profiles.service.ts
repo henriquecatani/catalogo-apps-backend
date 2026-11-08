@@ -7,6 +7,7 @@ import {
 import { CreateProfileDto } from "../dtos/create-profile-dto";
 import { PrismaService } from "../database/prisma.service";
 import { UpdateProfileDto } from "../dtos/update-profile-dto";
+import { GetProfileDTO } from "../dtos/get-profile-dto";
 
 @Injectable()
 export class ProfilesService {
@@ -25,7 +26,7 @@ export class ProfilesService {
     if (existing) {
       throw new ConflictException("Usuário já possui um perfil.");
     }
-    await this.prisma.profile.create({
+    const profileCreated = await this.prisma.profile.create({
       data: {
         userId: dto.userId ?? 0,
         fullName: dto.fullName ?? "",
@@ -33,6 +34,10 @@ export class ProfilesService {
         avatarUrl: dto.avatarUrl ?? "",
       },
     });
+    return {
+      message: "Perfil criado com sucesso!",
+      data: profileCreated,
+    };
   }
 
   async update(id: number, dto: UpdateProfileDto) {
@@ -48,6 +53,33 @@ export class ProfilesService {
     });
   }
 
+  async findByUserId(userId: number) {
+    const p = await this.prisma.profile.findUnique({ where: { userId } });
+    if (!p)
+      throw new NotFoundException("Perfil não encontrado para este usuário.");
+    return {
+      id: p.id,
+      userId: p.userId,
+      fullName: p.fullName,
+      birthDate: p.birthDate?.toISOString(),
+      avatarUrl: p.avatarUrl ?? "",
+    };
+  }
+
+  async getAllProfiles(): Promise<GetProfileDTO[]> {
+    return this.prisma.profile.findMany({
+      select: {
+        id: true,
+        userId: true,
+        fullName: true,
+        birthDate: true,
+        avatarUrl: true,
+        createdAt: true,
+      },
+      orderBy: { fullName: "asc" },
+    });
+  }
+
   async findOne(id: number) {
     const p = await this.prisma.profile.findUnique({ where: { id } });
     if (!p) throw new NotFoundException("Perfil não encontrado.");
@@ -58,5 +90,11 @@ export class ProfilesService {
       birthDate: p.birthDate?.toISOString(),
       avatarUrl: p.avatarUrl ?? "",
     };
+  }
+
+  async deleteProfile(id: number): Promise<void> {
+    await this.prisma.profile.delete({
+      where: { id },
+    });
   }
 }

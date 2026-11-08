@@ -1,18 +1,37 @@
 POST http://localhost:3000/api/profiles
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoidGVzdEBtYWlsLm9yZyIsIm5hbWUiOiJUZXN0IE5hbWUiLCJpYXQiOjE3OTQwOTU1ODgsImV4cCI6MTc5NDE4MTk4OH0.85JpbvpcgpYrLl_Jj25dZ5dt0oXCULD9WJay8gb0wyk
 
 {
-    "userId": 3,
-    "fullName": "Matus Roque",
-    "birthDate": "2007-01-02T00:00:00Z",
-    "avatarUrl": "https://s2-valor.glbimg.com/g15-iCR7opGAsSc2gXJ87i7WKiA=/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2025/E/b/MHG35ASMGYhl3jHOBbyg/foto19emp-101-mateus-b4.jpg"
+  "userId": 4,
+  "fullName": "Example User",
+  "birthDate": "2007-01-02T00:00:00Z",
+  "avatarUrl": "https://s2-valor.glbimg.com/g15-iCR7opGAsSc2gXJ87i7WKiA=/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2025/E/b/MHG35ASMGYhl3jHOBbyg/foto19emp-101-mateus-b4.jpg"
+}
+###
+POST http://localhost:3000/api/profiles
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoidGVzdEBtYWlsLm9yZyIsIm5hbWUiOiJUZXN0IE5hbWUiLCJpYXQiOjE3OTQwOTU1ODgsImV4cCI6MTc5NDE4MTk4OH0.85JpbvpcgpYrLl_Jj25dZ5dt0oXCULD9WJay8gb0wyk
+
+{
+  "userId": 2,
+  "fullName": "Henrique Catani",
+  "birthDate": "2007-02-22T00:00:00Z"
 }
 ###
 GET http://localhost:3000/api/profiles/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoidGVzdEBtYWlsLm9yZyIsIm5hbWUiOiJUZXN0IE5hbWUiLCJpYXQiOjE3OTQwOTU1ODgsImV4cCI6MTc5NDE4MTk4OH0.85JpbvpcgpYrLl_Jj25dZ5dt0oXCULD9WJay8gb0wyk
 ###
-PUT http://localhost:3000/api/profiles/1
+GET http://localhost:3000/api/profiles
+
+###
+GET http://localhost:3000/api/profiles?userId=4
+
+###
+PUT http://localhost:3000/api/profiles/3
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoidGVzdEBtYWlsLm9yZyIsIm5hbWUiOiJUZXN0IE5hbWUiLCJpYXQiOjE3OTQwOTU1ODgsImV4cCI6MTc5NDE4MTk4OH0.85JpbvpcgpYrLl_Jj25dZ5dt0oXCULD9WJay8gb0wyk
 
 {
-    "fullName": "Mateus Roque"
+  "fullName": "Catani"
 }

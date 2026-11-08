@@ -20,10 +20,11 @@ export class JwtAuthGuard implements CanActivate {
     }
 
     if (
-      method === "GET" &&
-      (url.includes("/apps") ||
-        url.includes("/developers") ||
-        url.includes("/reviews"))
+      (method === "GET" &&
+        (url.includes("/apps") ||
+          url.includes("/developers") ||
+          url.includes("/reviews"))) ||
+      url.includes("/profiles?userId")
     ) {
       return true;
     }
