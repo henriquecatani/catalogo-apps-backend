@@ -1,17 +1,24 @@
-import { IsIn, IsInt, IsNotEmpty, IsString, MaxLength } from "class-validator";
+import {
+  IsIn,
+  IsInt,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  MaxLength,
+} from "class-validator";
 
 export class CreateAppDto {
   @IsString()
   @IsNotEmpty()
   name: string;
 
+  @IsOptional()
   @IsString()
-  @IsNotEmpty()
-  icon: string;
+  icon?: string;
 
+  @IsOptional()
   @IsString()
-  @IsNotEmpty()
-  link: string;
+  link?: string;
 
   @IsString()
   @IsNotEmpty()

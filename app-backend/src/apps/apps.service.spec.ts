@@ -169,5 +169,35 @@ describe("AppsService", () => {
 
       expect(result.message).toBe("Aplicativo cadastrado com sucesso!");
     });
+
+    it("should create an app without icon and link", async () => {
+      prisma.developer.findUnique.mockResolvedValue({ id: 1, name: "Mozilla" });
+      prisma.app.create.mockResolvedValue({
+        id: 2,
+        name: "Minimal App",
+        category: "Utilities",
+        pricing: "free",
+      });
+
+      const result = await service.create({
+        name: "Minimal App",
+        smallDescription: "A minimal app",
+        markdownDescription: "# Minimal App",
+        category: "Utilities",
+        pricing: "free",
+        developerId: 1,
+      });
+
+      expect(prisma.app.create).toHaveBeenCalledWith({
+        data: expect.objectContaining({
+          name: "Minimal App",
+          icon: undefined,
+          link: undefined,
+        }),
+        include: { developer: true },
+      });
+
+      expect(result.message).toBe("Aplicativo cadastrado com sucesso!");
+    });
   });
 });

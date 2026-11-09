@@ -29,7 +29,7 @@ export class GetAppsQueryDto {
 
   @IsOptional()
   @IsString()
-  @IsIn(["free", "freemium", "paid"])
+  @IsIn(["free", "foss", "freemium", "paid"])
   pricing?: string;
 
   @IsOptional()

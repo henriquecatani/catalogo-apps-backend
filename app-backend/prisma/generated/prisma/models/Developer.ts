@@ -182,7 +182,7 @@ export type DeveloperGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 export type DeveloperGroupByOutputType = {
   id: number
   name: string
-  icon: string
+  icon: string | null
   createdAt: Date
   updatedAt: Date
   _count: DeveloperCountAggregateOutputType | null
@@ -213,7 +213,7 @@ export type DeveloperWhereInput = {
   NOT?: Prisma.DeveloperWhereInput | Prisma.DeveloperWhereInput[]
   id?: Prisma.IntFilter<"Developer"> | number
   name?: Prisma.StringFilter<"Developer"> | string
-  icon?: Prisma.StringFilter<"Developer"> | string
+  icon?: Prisma.StringNullableFilter<"Developer"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Developer"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Developer"> | Date | string
   apps?: Prisma.AppListRelationFilter
@@ -222,7 +222,7 @@ export type DeveloperWhereInput = {
 export type DeveloperOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  icon?: Prisma.SortOrder
+  icon?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   apps?: Prisma.AppOrderByRelationAggregateInput
@@ -234,7 +234,7 @@ export type DeveloperWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.DeveloperWhereInput[]
   NOT?: Prisma.DeveloperWhereInput | Prisma.DeveloperWhereInput[]
   name?: Prisma.StringFilter<"Developer"> | string
-  icon?: Prisma.StringFilter<"Developer"> | string
+  icon?: Prisma.StringNullableFilter<"Developer"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Developer"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Developer"> | Date | string
   apps?: Prisma.AppListRelationFilter
@@ -243,7 +243,7 @@ export type DeveloperWhereUniqueInput = Prisma.AtLeast<{
 export type DeveloperOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  icon?: Prisma.SortOrder
+  icon?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.DeveloperCountOrderByAggregateInput
@@ -259,14 +259,14 @@ export type DeveloperScalarWhereWithAggregatesInput = {
   NOT?: Prisma.DeveloperScalarWhereWithAggregatesInput | Prisma.DeveloperScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Developer"> | number
   name?: Prisma.StringWithAggregatesFilter<"Developer"> | string
-  icon?: Prisma.StringWithAggregatesFilter<"Developer"> | string
+  icon?: Prisma.StringNullableWithAggregatesFilter<"Developer"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Developer"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Developer"> | Date | string
 }
 
 export type DeveloperCreateInput = {
   name: string
-  icon: string
+  icon?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   apps?: Prisma.AppCreateNestedManyWithoutDeveloperInput
@@ -275,7 +275,7 @@ export type DeveloperCreateInput = {
 export type DeveloperUncheckedCreateInput = {
   id?: number
   name: string
-  icon: string
+  icon?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   apps?: Prisma.AppUncheckedCreateNestedManyWithoutDeveloperInput
@@ -283,7 +283,7 @@ export type DeveloperUncheckedCreateInput = {
 
 export type DeveloperUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   apps?: Prisma.AppUpdateManyWithoutDeveloperNestedInput
@@ -292,7 +292,7 @@ export type DeveloperUpdateInput = {
 export type DeveloperUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   apps?: Prisma.AppUncheckedUpdateManyWithoutDeveloperNestedInput
@@ -301,14 +301,14 @@ export type DeveloperUncheckedUpdateInput = {
 export type DeveloperCreateManyInput = {
   id?: number
   name: string
-  icon: string
+  icon?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type DeveloperUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -316,7 +316,7 @@ export type DeveloperUpdateManyMutationInput = {
 export type DeveloperUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -374,7 +374,7 @@ export type DeveloperUpdateOneRequiredWithoutAppsNestedInput = {
 
 export type DeveloperCreateWithoutAppsInput = {
   name: string
-  icon: string
+  icon?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -382,7 +382,7 @@ export type DeveloperCreateWithoutAppsInput = {
 export type DeveloperUncheckedCreateWithoutAppsInput = {
   id?: number
   name: string
-  icon: string
+  icon?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -405,7 +405,7 @@ export type DeveloperUpdateToOneWithWhereWithoutAppsInput = {
 
 export type DeveloperUpdateWithoutAppsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -413,7 +413,7 @@ export type DeveloperUpdateWithoutAppsInput = {
 export type DeveloperUncheckedUpdateWithoutAppsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -499,7 +499,7 @@ export type $DeveloperPayload<ExtArgs extends runtime.Types.Extensions.InternalA
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     name: string
-    icon: string
+    icon: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["developer"]>

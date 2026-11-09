@@ -28,8 +28,8 @@ export class UpdateAppDto {
 
   @IsOptional()
   @IsString()
-  @IsIn(["free", "freemium", "paid"], {
-    message: "pricing must be one of: free, freemium, paid",
+  @IsIn(["free", "foss", "freemium", "paid"], {
+    message: "pricing must be one of: free, foss, freemium, paid",
   })
   pricing?: string;
 

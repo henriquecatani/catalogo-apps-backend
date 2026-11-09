@@ -170,4 +170,30 @@ describe("DevelopersService", () => {
       expect(result).toEqual(mockDeveloper);
     });
   });
+
+  describe("create", () => {
+    it("should create developer with icon", async () => {
+      const mockDev = { id: 1, name: "Mozilla", icon: "mozilla.svg" };
+      prisma.developer.create.mockResolvedValue(mockDev);
+
+      const result = await service.create({ name: "Mozilla", icon: "mozilla.svg" });
+
+      expect(prisma.developer.create).toHaveBeenCalledWith({
+        data: { name: "Mozilla", icon: "mozilla.svg" },
+      });
+      expect(result.data).toEqual(mockDev);
+    });
+
+    it("should create developer without icon", async () => {
+      const mockDev = { id: 2, name: "Indie Dev", icon: null };
+      prisma.developer.create.mockResolvedValue(mockDev);
+
+      const result = await service.create({ name: "Indie Dev" });
+
+      expect(prisma.developer.create).toHaveBeenCalledWith({
+        data: { name: "Indie Dev", icon: undefined },
+      });
+      expect(result.data).toEqual(mockDev);
+    });
+  });
 });

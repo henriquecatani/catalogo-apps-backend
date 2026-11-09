@@ -232,8 +232,8 @@ export type AppGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
 export type AppGroupByOutputType = {
   id: number
   name: string
-  icon: string
-  link: string
+  icon: string | null
+  link: string | null
   smallDescription: string
   markdownDescription: string
   rating: number
@@ -270,8 +270,8 @@ export type AppWhereInput = {
   NOT?: Prisma.AppWhereInput | Prisma.AppWhereInput[]
   id?: Prisma.IntFilter<"App"> | number
   name?: Prisma.StringFilter<"App"> | string
-  icon?: Prisma.StringFilter<"App"> | string
-  link?: Prisma.StringFilter<"App"> | string
+  icon?: Prisma.StringNullableFilter<"App"> | string | null
+  link?: Prisma.StringNullableFilter<"App"> | string | null
   smallDescription?: Prisma.StringFilter<"App"> | string
   markdownDescription?: Prisma.StringFilter<"App"> | string
   rating?: Prisma.FloatFilter<"App"> | number
@@ -287,8 +287,8 @@ export type AppWhereInput = {
 export type AppOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  icon?: Prisma.SortOrder
-  link?: Prisma.SortOrder
+  icon?: Prisma.SortOrderInput | Prisma.SortOrder
+  link?: Prisma.SortOrderInput | Prisma.SortOrder
   smallDescription?: Prisma.SortOrder
   markdownDescription?: Prisma.SortOrder
   rating?: Prisma.SortOrder
@@ -307,8 +307,8 @@ export type AppWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.AppWhereInput[]
   NOT?: Prisma.AppWhereInput | Prisma.AppWhereInput[]
   name?: Prisma.StringFilter<"App"> | string
-  icon?: Prisma.StringFilter<"App"> | string
-  link?: Prisma.StringFilter<"App"> | string
+  icon?: Prisma.StringNullableFilter<"App"> | string | null
+  link?: Prisma.StringNullableFilter<"App"> | string | null
   smallDescription?: Prisma.StringFilter<"App"> | string
   markdownDescription?: Prisma.StringFilter<"App"> | string
   rating?: Prisma.FloatFilter<"App"> | number
@@ -324,8 +324,8 @@ export type AppWhereUniqueInput = Prisma.AtLeast<{
 export type AppOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  icon?: Prisma.SortOrder
-  link?: Prisma.SortOrder
+  icon?: Prisma.SortOrderInput | Prisma.SortOrder
+  link?: Prisma.SortOrderInput | Prisma.SortOrder
   smallDescription?: Prisma.SortOrder
   markdownDescription?: Prisma.SortOrder
   rating?: Prisma.SortOrder
@@ -347,8 +347,8 @@ export type AppScalarWhereWithAggregatesInput = {
   NOT?: Prisma.AppScalarWhereWithAggregatesInput | Prisma.AppScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"App"> | number
   name?: Prisma.StringWithAggregatesFilter<"App"> | string
-  icon?: Prisma.StringWithAggregatesFilter<"App"> | string
-  link?: Prisma.StringWithAggregatesFilter<"App"> | string
+  icon?: Prisma.StringNullableWithAggregatesFilter<"App"> | string | null
+  link?: Prisma.StringNullableWithAggregatesFilter<"App"> | string | null
   smallDescription?: Prisma.StringWithAggregatesFilter<"App"> | string
   markdownDescription?: Prisma.StringWithAggregatesFilter<"App"> | string
   rating?: Prisma.FloatWithAggregatesFilter<"App"> | number
@@ -361,8 +361,8 @@ export type AppScalarWhereWithAggregatesInput = {
 
 export type AppCreateInput = {
   name: string
-  icon: string
-  link: string
+  icon?: string | null
+  link?: string | null
   smallDescription: string
   markdownDescription: string
   rating?: number
@@ -377,8 +377,8 @@ export type AppCreateInput = {
 export type AppUncheckedCreateInput = {
   id?: number
   name: string
-  icon: string
-  link: string
+  icon?: string | null
+  link?: string | null
   smallDescription: string
   markdownDescription: string
   rating?: number
@@ -392,8 +392,8 @@ export type AppUncheckedCreateInput = {
 
 export type AppUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
-  link?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -408,8 +408,8 @@ export type AppUpdateInput = {
 export type AppUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
-  link?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -424,8 +424,8 @@ export type AppUncheckedUpdateInput = {
 export type AppCreateManyInput = {
   id?: number
   name: string
-  icon: string
-  link: string
+  icon?: string | null
+  link?: string | null
   smallDescription: string
   markdownDescription: string
   rating?: number
@@ -438,8 +438,8 @@ export type AppCreateManyInput = {
 
 export type AppUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
-  link?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -452,8 +452,8 @@ export type AppUpdateManyMutationInput = {
 export type AppUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
-  link?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -602,8 +602,8 @@ export type AppUpdateOneRequiredWithoutReviewsNestedInput = {
 
 export type AppCreateWithoutDeveloperInput = {
   name: string
-  icon: string
-  link: string
+  icon?: string | null
+  link?: string | null
   smallDescription: string
   markdownDescription: string
   rating?: number
@@ -617,8 +617,8 @@ export type AppCreateWithoutDeveloperInput = {
 export type AppUncheckedCreateWithoutDeveloperInput = {
   id?: number
   name: string
-  icon: string
-  link: string
+  icon?: string | null
+  link?: string | null
   smallDescription: string
   markdownDescription: string
   rating?: number
@@ -660,8 +660,8 @@ export type AppScalarWhereInput = {
   NOT?: Prisma.AppScalarWhereInput | Prisma.AppScalarWhereInput[]
   id?: Prisma.IntFilter<"App"> | number
   name?: Prisma.StringFilter<"App"> | string
-  icon?: Prisma.StringFilter<"App"> | string
-  link?: Prisma.StringFilter<"App"> | string
+  icon?: Prisma.StringNullableFilter<"App"> | string | null
+  link?: Prisma.StringNullableFilter<"App"> | string | null
   smallDescription?: Prisma.StringFilter<"App"> | string
   markdownDescription?: Prisma.StringFilter<"App"> | string
   rating?: Prisma.FloatFilter<"App"> | number
@@ -674,8 +674,8 @@ export type AppScalarWhereInput = {
 
 export type AppCreateWithoutReviewsInput = {
   name: string
-  icon: string
-  link: string
+  icon?: string | null
+  link?: string | null
   smallDescription: string
   markdownDescription: string
   rating?: number
@@ -689,8 +689,8 @@ export type AppCreateWithoutReviewsInput = {
 export type AppUncheckedCreateWithoutReviewsInput = {
   id?: number
   name: string
-  icon: string
-  link: string
+  icon?: string | null
+  link?: string | null
   smallDescription: string
   markdownDescription: string
   rating?: number
@@ -719,8 +719,8 @@ export type AppUpdateToOneWithWhereWithoutReviewsInput = {
 
 export type AppUpdateWithoutReviewsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
-  link?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -734,8 +734,8 @@ export type AppUpdateWithoutReviewsInput = {
 export type AppUncheckedUpdateWithoutReviewsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
-  link?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -749,8 +749,8 @@ export type AppUncheckedUpdateWithoutReviewsInput = {
 export type AppCreateManyDeveloperInput = {
   id?: number
   name: string
-  icon: string
-  link: string
+  icon?: string | null
+  link?: string | null
   smallDescription: string
   markdownDescription: string
   rating?: number
@@ -762,8 +762,8 @@ export type AppCreateManyDeveloperInput = {
 
 export type AppUpdateWithoutDeveloperInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
-  link?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -777,8 +777,8 @@ export type AppUpdateWithoutDeveloperInput = {
 export type AppUncheckedUpdateWithoutDeveloperInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
-  link?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -792,8 +792,8 @@ export type AppUncheckedUpdateWithoutDeveloperInput = {
 export type AppUncheckedUpdateManyWithoutDeveloperInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
-  link?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  link?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   smallDescription?: Prisma.StringFieldUpdateOperationsInput | string
   markdownDescription?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -921,8 +921,8 @@ export type $AppPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     name: string
-    icon: string
-    link: string
+    icon: string | null
+    link: string | null
     smallDescription: string
     markdownDescription: string
     rating: number

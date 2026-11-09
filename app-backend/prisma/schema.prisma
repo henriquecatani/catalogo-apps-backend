@@ -37,7 +37,7 @@ model Profile {
 model Developer {
   id        Int      @id @default(autoincrement())
   name      String
-  icon      String
+  icon      String?
   apps      App[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -46,8 +46,8 @@ model Developer {
 model App {
   id                  Int       @id @default(autoincrement())
   name                String
-  icon                String
-  link                String
+  icon                String?
+  link                String?
   smallDescription    String    @map("small_description")
   markdownDescription String    @map("markdown_description")
   rating              Float     @default(0.0)

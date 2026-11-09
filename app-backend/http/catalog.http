@@ -1,7 +1,7 @@
 ### 1. Criar Desenvolvedor
 POST http://localhost:3000/api/developers
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2F0YW5pQGxpbnV4bWFpbC5vcmciLCJuYW1lIjoiQ2F0YW5pIiwiaWF0IjoxNzk0MTc5NTAzLCJleHAiOjE3OTQyNjU5MDN9.ny23gHFW4F3_hX_luPEcxaYhMc5hlUTndsUyFgsUJio
 
 {
   "name": "Mozilla",
@@ -21,7 +21,7 @@ GET http://localhost:3000/api/developers/1
 ### 4. Atualizar Desenvolvedor
 PUT http://localhost:3000/api/developers/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5MDcyOTgwNiwiZXhwIjoxNzkwODE2MjA2fQ.FrczMoWVAao8C7q4QukW3cGvCAmhfqYz-eezX__bsRk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2F0YW5pQGxpbnV4bWFpbC5vcmciLCJuYW1lIjoiQ2F0YW5pIiwiaWF0IjoxNzk0MTc5NTAzLCJleHAiOjE3OTQyNjU5MDN9.ny23gHFW4F3_hX_luPEcxaYhMc5hlUTndsUyFgsUJio
 
 {
   "name": "Mozilla Foundation"
@@ -30,7 +30,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsI
 ### 5. Cadastrar Aplicativo (com categoria e preço)
 POST http://localhost:3000/api/apps
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5Mzc2MjIwOSwiZXhwIjoxNzkzODQ4NjA5fQ.FwD4MP5j3ZGkGSNmv2CQbGinw9iLK2tDg0mrgW4lkLM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2F0YW5pQGxpbnV4bWFpbC5vcmciLCJuYW1lIjoiQ2F0YW5pIiwiaWF0IjoxNzk0MTc5NTAzLCJleHAiOjE3OTQyNjU5MDN9.ny23gHFW4F3_hX_luPEcxaYhMc5hlUTndsUyFgsUJio
 
 {
   "name": "Firefox Browser",
@@ -40,7 +40,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsI
   "markdownDescription": "# Firefox\n\nO navegador que prioriza sua privacidade e rapidez de navegação na web.",
   "category": "Browsers",
   "pricing": "free",
-  "developerId": 1
+  "developerId": 2
 }
 
 ###
@@ -93,7 +93,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsI
 ### 10. Criar Avaliação 1 para o Aplicativo (recalcula a nota do App)
 POST http://localhost:3000/api/apps/1/reviews
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY2F0YW5pQGxpbnV4bWFpbC5vcmciLCJuYW1lIjoiQ2F0YW5pIiwiaWF0IjoxNzkzOTk4MDAwLCJleHAiOjE3OTQwODQ0MDB9.CeqW_kyf7mhIddwrKtU3blV1jsOs0qMSuiInIq1VHfA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5NDEwNTk2NiwiZXhwIjoxNzk0MTkyMzY2fQ.xsrSuXvgPpc-UDWRSrU1Y1moTp6tJSsYqgh6Zdw_DYI
 
 {
   "userId": 2,
@@ -126,6 +126,7 @@ GET http://localhost:3000/api/reviews/1
 ### 15. Atualizar Avaliação (recalcula nota)
 PUT http://localhost:3000/api/reviews/1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5NDEwNTk2NiwiZXhwIjoxNzk0MTkyMzY2fQ.xsrSuXvgPpc-UDWRSrU1Y1moTp6tJSsYqgh6Zdw_DYI
 
 {
   "rating": 4.0,
@@ -139,4 +140,5 @@ DELETE http://localhost:3000/api/reviews/1
 DELETE http://localhost:3000/api/apps/1
 
 ### 18. Deletar Desenvolvedor
-DELETE http://localhost:3000/api/developers/1
+DELETE http://localhost:3000/api/developers/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXN1YXJpb0B1cGYuYnIiLCJuYW1lIjoidXN1YXJpbyIsImlhdCI6MTc5NDEwNTk2NiwiZXhwIjoxNzk0MTkyMzY2fQ.xsrSuXvgPpc-UDWRSrU1Y1moTp6tJSsYqgh6Zdw_DYI
